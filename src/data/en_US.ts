@@ -1,4 +1,6 @@
-{
+import { AppStrings } from "./appStrings";
+
+export const englishStrings: AppStrings = {
     "heading": "Stranger Things in RTP",
     "description": "The Duffer Brothers, born and raised in Durham, drop quite a few Durham-area references in the Emmy-winning hit sci-fi series 'Stranger Things' that they write, direct and produce.",
     "snippets": [

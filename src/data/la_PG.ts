@@ -1,4 +1,6 @@
-{
+import { AppStrings } from "./appStrings";
+
+export const pigLatinStrings: AppStrings = {
     "heading": "angerStray ingsThay inyay RTP",
     "description": "ethay Duffer othersbray , ornbay andyay aisedray inyay Durham , opdray uiteqay ayay ewfay urham-areaday eferencesray inyay ethay emmy-winningyay ithay i-fiscay eriessay 'angerstray ings'thay atthay eythay itewray , irectday andyay oducepray .",
     "snippets": [
