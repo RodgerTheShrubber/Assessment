@@ -14,7 +14,7 @@ export class AboutPage extends React.PureComponent<AboutPageProps, AboutPageStat
   }
 
   public render(): JSX.Element {
-    return <div>{this.props.appStrings.heading}</div>
+    return (<div><h4>What is Stranger Things?</h4><p>{this.props.appStrings.snippets[1]}</p></div>)
   }
 }
 
