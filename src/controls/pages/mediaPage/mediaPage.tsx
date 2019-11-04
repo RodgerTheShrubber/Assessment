@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppStrings, galleryItem } from '../../../data';
 import { FocusZone, FocusZoneDirection } from 'office-ui-fabric-react/lib/FocusZone';
-import { Image, ImageFit } from 'office-ui-fabric-react/lib/Image';
 import { List } from 'office-ui-fabric-react/lib/List';
 import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 
@@ -34,7 +33,7 @@ export class MediaPage extends React.PureComponent<MediaPageProps, MediaPageStat
         <List items={this.props.appStrings.gallery} onRenderCell={this._onRenderCell}/>
       </div>
       <div className={classNames.iFrameContainer}>
-        <iframe className={classNames.videoEmbed} src={this.props.appStrings["video-embed"]}></iframe>
+        <iframe title={"News segment"} className={classNames.videoEmbed} src={this.props.appStrings["video-embed"]}></iframe>
       </div>
     </FocusZone>)
   }
@@ -45,7 +44,7 @@ export class MediaPage extends React.PureComponent<MediaPageProps, MediaPageStat
         className={classNames.cellContainer}
         data-is-focusable={true}
       >
-        <a href={item && item.reference}><img src={item && item.src} className={classNames.cellImage} /></a>
+        <a href={item && item.reference}><img alt={item && item.text} src={item && item.src} className={classNames.cellImage} /></a>
         <span className={classNames.cellLabel}>{item && item.text}</span>
       </div>
     );
