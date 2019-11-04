@@ -3,7 +3,9 @@ import { englishStrings, AppStrings } from '../../data'
 import { LanguageSelector, NavBar } from '..'
 import { IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import { PivotItem } from 'office-ui-fabric-react/lib/Pivot';
+import { Image } from 'office-ui-fabric-react/lib/Image';
 import { AboutPage, EpisodesPage, MediaPage } from '../pages';
+import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 
 export interface WebsiteProps {
 }
@@ -54,11 +56,37 @@ export class Website extends React.PureComponent<WebsiteProps, WebsiteState> {
   }
 
   public render(): JSX.Element {
-    return (<div>
-      <LanguageSelector onLanguageChange={this.onLanguageChange}/>
-      <NavBar onNavToNewPage={this.onNavToNewPage}/>
-      {this.state.pageToDisplay()}
+    return (
+      <div className={classNames.container}>
+        <LanguageSelector onLanguageChange={this.onLanguageChange}/>
+        <div className={classNames.content}>
+          <Image className={classNames.banner} src={require('../../images/strangerThingsBanner.png')} />
+          <NavBar onNavToNewPage={this.onNavToNewPage}/>
+          {this.state.pageToDisplay()}
+        </div>
       </div>
   )};
 }
+
+
+interface IEpisodesListClassObject {
+  container: string;
+  content: string;
+  banner: string;
+}
+
+const classNames: IEpisodesListClassObject = mergeStyleSets({
+  container: {
+    margin: 'auto',
+    padding: 25,
+    width: '80em'
+  },
+  content: {
+    padding: '100px 0px'
+  },
+  banner: {
+    display: 'flex',
+    justifyContent: 'center'
+  }
+});
 

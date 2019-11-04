@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pivot, PivotItem, IPivotItemProps } from 'office-ui-fabric-react/lib/Pivot';
-import { AppStrings } from '../../data';
+import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 
 export interface NavBarProps {
   onNavToNewPage: (item?: PivotItem) => void;
@@ -21,10 +21,24 @@ export class NavBar extends React.PureComponent<NavBarProps, NavBarState> {
   }
 
   public render(): JSX.Element {
-    return (<Pivot onLinkClick={this.props.onNavToNewPage}>
+    return (
+    <div className={classNames.container}>
+      <Pivot onLinkClick={this.props.onNavToNewPage}>
       {pivotItems.map((item) => <PivotItem {...item}/>)}
       </Pivot>
-      )
+    </div>
+    )
   }
 }
 
+interface IEpisodesListClassObject {
+  container: string;
+}
+
+const classNames: IEpisodesListClassObject = mergeStyleSets({
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: 25
+  }
+});
