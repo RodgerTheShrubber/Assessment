@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import { englishStrings, pigLatinStrings } from '../../data';
+import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 
 export interface LanguageSelectorProps {
   onLanguageChange: (languageOption: IDropdownOption) => void
@@ -20,7 +21,21 @@ export class LanguageSelector extends React.PureComponent<LanguageSelectorProps,
   }
 
   public render(): JSX.Element {
-    return <Dropdown options={languageOptions} placeHolder="English" onChanged={this.props.onLanguageChange}/>
-  }
+    return (
+    <div className={classNames.container}>
+      <Dropdown options={languageOptions} placeHolder="English" onChanged={this.props.onLanguageChange}/>
+    </div>
+  )}
 }
+
+interface IEpisodesListClassObject {
+  container: string;
+}
+
+const classNames: IEpisodesListClassObject = mergeStyleSets({
+  container: {
+    float:'right',
+    maxWidth: 100
+  }
+});
 
